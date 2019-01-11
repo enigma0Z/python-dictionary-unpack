@@ -34,3 +34,6 @@ test: clean
 	$(PYTHON) -m pylint $(TARGETS)
 	$(PYTHON) -m compileall $(TARGETS)
 	$(SPHINX) -M doctest "$(SPHINX_SOURCE)" "$(SPHINX_BUILD)" $(SPHINXOPTS)
+
+setup:
+	$(PYTHON) -m pip install sphinx twine
