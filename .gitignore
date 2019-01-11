@@ -3,3 +3,6 @@ __pycache__
 python*.egg-info/*
 dist/*
 build/*
+doc/doctest
+doc/doctrees
+.DS_store
