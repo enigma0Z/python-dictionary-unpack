@@ -32,7 +32,8 @@ class Unpack:
     def _create(self, data):
         if isinstance(data, dict):
             return Unpack(data)
-        elif isinstance(data, list):
+
+        if isinstance(data, list):
             if data != [] and isinstance(data[0], dict):
                 return list(map(lambda x: Unpack(x), data))
 
