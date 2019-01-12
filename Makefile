@@ -19,7 +19,8 @@ clean_code:
 	@rm -rf build dist python*.egg-info && false || echo "Build artifacts cleaned"
 
 clean_doc:
-	@rm -rf $(SPHINX_SOURCE)/doctrees $(SPHINX_SOURCE)/doctest && false || echo "Docs cleaned"
+	@rm -rf $(SPHINX_SOURCE)/doctrees $(SPHINX_SOURCE)/doctest && false || echo "Sphin source cleaned"
+	@rm -rf $(SPHINX_BUILD)/doctrees $(SPHINX_BUILD)/doctest && false || echo "Sphinx build cleaned"
 
 package:
 	$(PYTHON) setup.py sdist bdist_wheel
@@ -33,7 +34,7 @@ doc:
 test: clean
 	$(PYTHON) -m pylint $(TARGETS)
 	$(PYTHON) -m compileall $(TARGETS)
-	$(SPHINX) -M doctest "$(SPHINX_SOURCE)" "$(SPHINX_SOURCE)" $(SPHINXOPTS)
-
+	$(SPHINX) -M doctest "$(SPHINX_SOURCE)" "$(SPHINX_BUILD)" $(SPHINXOPTS) 
+ 
 setup:
 	$(PYTHON) -m pip install sphinx twine
