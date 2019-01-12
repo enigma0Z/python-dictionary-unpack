@@ -4,7 +4,8 @@ PYTHON ?= python3
 TWINE ?= $(PYTHON) -m twine
 SPHINX ?= $(PYTHON) -m sphinx.cmd.build
 SPHINX_SOURCE     = sphinx
-SPHINX_BUILD      = doc
+SPHINX_BUILD      = sphinx
+
 
 PYPI_URL ?= https://test.pypi.org/legacy/
 
