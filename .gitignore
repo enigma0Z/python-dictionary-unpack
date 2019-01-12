@@ -5,4 +5,5 @@ dist/*
 build/*
 doctest
 doctrees
+.doctrees
 .DS_store

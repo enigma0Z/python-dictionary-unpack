@@ -19,8 +19,7 @@ clean_code:
 	@rm -rf build dist python*.egg-info && false || echo "Build artifacts cleaned"
 
 clean_doc:
-	@rm -rf $(SPHINX_SOURCE)/doctrees $(SPHINX_SOURCE)/doctest && false || echo "Sphin source cleaned"
-	@rm -rf $(SPHINX_BUILD)/doctrees $(SPHINX_BUILD)/doctest && false || echo "Sphinx build cleaned"
+	@rm -rf $(SPHINX_BUILD)/.doctrees $(SPHINX_BUILD)/doctrees $(SPHINX_BUILD)/doctest && false || echo "Sphinx build cleaned"
 
 package:
 	$(PYTHON) setup.py sdist bdist_wheel
@@ -29,7 +28,7 @@ publish:
 	$(TWINE) upload --repository-url $(PYPI_URL) dist/*
 
 doc: 
-	$(SPHINX) -M html "$(SPHINX_SOURCE)" "$(SPHINX_BUILD)" $(SPHINXOPTS)
+	$(SPHINX) -b html "$(SPHINX_SOURCE)" "$(SPHINX_BUILD)" $(SPHINXOPTS)
 
 test: clean
 	$(PYTHON) -m pylint $(TARGETS)
